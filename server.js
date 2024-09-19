@@ -1,3 +1,4 @@
+// server.js
 require("dotenv").config();
 const express = require('express');
 const { verify } = require('./src/lib/jwt');
@@ -41,11 +42,6 @@ app.get("/", (request, response) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: 'Internal Server Error' });
-});
-
-// Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
 });
 
 module.exports = app;
